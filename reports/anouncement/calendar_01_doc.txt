@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="jalalijscalendar/skins/aqua/theme.css">
+<script src="jalalijscalendar/jalali.js"></script>
+<script src="jalalijscalendar/calendar.js"></script>
+<script src="jalalijscalendar/calendar-setup.js"></script>
+<script src="jalalijscalendar/lang/calendar-fa.js"></script>
+
+<input id="date_input" type="text"><input id="date_btn" type="button">
+<script>
+Calendar.setup({
+    inputField: 'date_input',
+    button: 'date_btn',
+    ifFormat: '%Y/%m/%d',
+    dateType: 'jalali'
+});
+</script>

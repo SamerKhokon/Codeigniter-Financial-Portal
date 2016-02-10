@@ -1,0 +1,32 @@
+SELECT sum(ltp) FROM(
+SELECT @rownum:=@rownum+1 AS rn, p.entry_date,p.ltp FROM eod_stock p , 
+(SELECT @rownum:=0) AS r WHERE company_id=13 AND
+p.entry_date BETWEEN '2013-10-10' AND '2013-11-11'
+ ) AS t WHERE rn <5 LIMIT 0,10
+union all
+SELECT sum(ltp) FROM(
+SELECT @rownum:=@rownum+1 AS rn, p.entry_date,p.ltp FROM eod_stock p , 
+(SELECT @rownum:=0) AS r WHERE company_id=13 AND
+p.entry_date BETWEEN '2013-10-10' AND '2013-11-11'
+ ) AS t WHERE rn >5 LIMIT 0,10
+
+
+
+******************************************************************************
+SELECT SUM(ltp) FROM(
+SELECT @rownum:=@rownum+1 AS rn, p.entry_date,p.ltp FROM eod_stock p , 
+(SELECT @rownum:=0) AS r WHERE company_id=13 AND
+p.entry_date BETWEEN '2013-10-10' AND '2013-11-11'
+ ) AS t WHERE rn <8 LIMIT 0,21
+UNION ALL
+SELECT SUM(ltp) FROM(
+SELECT @rownum:=@rownum+1 AS rn, p.entry_date,p.ltp FROM eod_stock p , 
+(SELECT @rownum:=0) AS r WHERE company_id=13 AND
+p.entry_date BETWEEN '2013-10-10' AND '2013-11-11'
+ ) AS t WHERE rn >7 AND rn <15 LIMIT 0,21
+UNION ALL
+SELECT SUM(ltp) FROM(
+SELECT @rownum:=@rownum+1 AS rn, p.entry_date,p.ltp FROM eod_stock p , 
+(SELECT @rownum:=0) AS r WHERE company_id=13 AND
+p.entry_date BETWEEN '2013-10-10' AND '2013-11-11'
+ ) AS t WHERE rn >14 AND rn <21 LIMIT 0,21
